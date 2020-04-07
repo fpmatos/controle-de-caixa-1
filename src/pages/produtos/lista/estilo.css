@@ -1,0 +1,12 @@
+.lista{
+    background-color: beige;
+    width: 100%;
+    margin: auto;
+    height: 100vh;
+    
+}
+
+.item{
+    border: 1px solid #ddd;
+    background-color: white;
+}
