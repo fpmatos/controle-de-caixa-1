@@ -11,8 +11,10 @@ export default function Lista(){
         }, [itens])
     })
 
+  
+
     const deleteItens = (item)=>{
-        console.log(`dleta este código ${item}`)
+        console.log(`deleta este código ${item}`)
         const filtro = itens.filter((e)=>{
             return(e.item!=item)
         })
