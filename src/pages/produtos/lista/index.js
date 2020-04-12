@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from "react"
-import {retornarTodos} from "../../../services/productServer"
+import {retornarTodos} from "../../../services/productService"
 import "./estilo.css"
+
 
 export default function Lista(){
     const [itens, setItens] = useState([])
@@ -13,7 +14,7 @@ export default function Lista(){
 
   
 
-    const deleteItens = (item)=>{
+    const deleteItem = (item)=>{
         console.log(`deleta este código ${item}`)
         const filtro = itens.filter((e)=>{
             return(e.item!=item)
@@ -21,6 +22,7 @@ export default function Lista(){
         
         setItens(filtro)
     }
+    
 
     return(
         <div className="lista">
@@ -35,7 +37,7 @@ export default function Lista(){
                             <p> <span>Código de barras:</span> {x.codigo} </p>
                             <div className="botoes my-1">
                                 <button className="btn btn-primary mx-4">Editar</button>
-                                <button onClick={()=> deleteItens(x.codigo)} className="btn btn-danger mx-4">Excluir</button>
+                                <button onClick={()=> deleteItem(x.codigo)} className="btn btn-danger mx-4">Excluir</button>
                             </div>
                         </article>
                     </div>

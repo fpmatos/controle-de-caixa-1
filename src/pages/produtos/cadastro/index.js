@@ -1,6 +1,6 @@
 import React, {useState} from "react"
 import "./estilo.css"
-import { adicionar } from "../../../services/productServer"
+import { adicionar } from "../../../services/productService"
 
 export default function CadastroProdutos({history}){
     const [product, setProduct] = useState({nome:"", tipo:"", valor:"", codigo:""})

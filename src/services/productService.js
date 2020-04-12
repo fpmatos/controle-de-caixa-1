@@ -8,3 +8,4 @@ export const adicionar = (model)=>{
 export const retornarTodos = ()=>{
     return Promise.resolve(dbProduct)
 }
+
