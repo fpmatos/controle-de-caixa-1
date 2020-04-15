@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from "react"
 import {retornarTodos} from "../../../services/productService"
 import "./estilo.css"
+import {removerItem} from "../../../services/productService"
 
 
 export default function Lista(){
@@ -13,15 +14,16 @@ export default function Lista(){
     })
 
   
-
-    const deleteItem = (item)=>{
-        console.log(`deleta este código ${item}`)
-        const filtro = item.filter((e)=>{
-            return(e.item!=item)
+const deleteItem = (itemCodigo)=>{
+    removerItem(itemCodigo).then(()=>{
+        setItens((state)=>{
+          const  newList = [...state]
+          const indexToDelete = itens.findIndex(e=>e.itemCodigo===itemCodigo)
+          newList.splice(indexToDelete, 1)
+          return (newList)
         })
-        
-        setItens(filtro)
-    }
+    })
+}
     
 
     return(
