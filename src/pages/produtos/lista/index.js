@@ -4,7 +4,7 @@ import "./estilo.css"
 
 
 export default function Lista(){
-    const [itens, setItens] = useState([])
+    const [item, setItem] = useState([])
 
     useEffect(()=>{
         retornarTodos().then((x)=>{
@@ -16,7 +16,7 @@ export default function Lista(){
 
     const deleteItem = (item)=>{
         console.log(`deleta este código ${item}`)
-        const filtro = itens.filter((e)=>{
+        const filtro = item.filter((e)=>{
             return(e.item!=item)
         })
         
