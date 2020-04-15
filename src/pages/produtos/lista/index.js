@@ -4,7 +4,7 @@ import "./estilo.css"
 
 
 export default function Lista(){
-    const [item, setItem] = useState([])
+    const [itens, setItens] = useState([])
 
     useEffect(()=>{
         retornarTodos().then((x)=>{
