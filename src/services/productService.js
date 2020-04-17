@@ -15,3 +15,11 @@ export const removerItem = (model)=>{
     return Promise.resolve()
 }
 
+export const editarCodigo = (editCodigo)=>{
+    const findCodigo = dbProduct.find(e=>e.editCodigo === editCodigo)
+    return Promise.resolve()
+}
+
+export const retornarValores = ()=>{
+    return Promise.resolve(dbProduct)
+}

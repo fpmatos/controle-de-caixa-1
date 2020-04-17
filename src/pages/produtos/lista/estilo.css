@@ -6,7 +6,15 @@
     
 }
 
-.item{
+.lista table{
     border: 1px solid #ddd;
     background-color: white;
+}
+
+.lista table tr{
+    border: 1px solid #ddd;
+}
+
+.lista table tr td{
+    border: 1px solid #ddd;
 }

@@ -2,9 +2,11 @@ import React, {useState, useEffect} from "react"
 import {retornarTodos} from "../../../services/productService"
 import "./estilo.css"
 import {removerItem} from "../../../services/productService"
+import { editarCodigo } from "../../../services/productService"
 
 
-export default function Lista(){
+
+export default function Lista({history}){
     const [itens, setItens] = useState([])
 
     useEffect(()=>{
@@ -24,27 +26,39 @@ const deleteItem = (itemCodigo)=>{
         })
     })
 }
+
+const editar = (editCodigo)=>{
+    editarCodigo(editCodigo).then(()=>{
+        history.push("/editar-produtos")
+    })
+}
     
 
     return(
         <div className="lista">
             <h3 className="text-center py-4">Lista de Produtos</h3>
-            {itens.map((x)=>{
-                return(
-                    <div className="container item my-2">
-                        <article>
-                            <h3> {x.nome} </h3>
-                            <h5> <span>Tipo:</span> {x.tipo} </h5>
-                            <p> <span>Valor:</span> {x.valor} <span>R$</span> </p>
-                            <p> <span>Código de barras:</span> {x.codigo} </p>
-                            <div className="botoes my-1">
-                                <button className="btn btn-primary mx-4">Editar</button>
-                                <button onClick={()=> deleteItem(x.codigo)} className="btn btn-danger mx-4">Excluir</button>
-                            </div>
-                        </article>
-                    </div>
-                )
-            })}
+                <table style={{width: "80%"}} className="container item my-2">
+                    <tr style={{fontWeight:"bold"}}>
+                        <td>NOME</td>
+                        <td>TIPO</td>
+                        <td>VALOR</td>
+                        <td>CÓDIGO</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                
+                {itens.map((x)=>
+                     <tr>
+                         <td> {x.nome} </td>
+                         <td> {x.tipo} </td>
+                         <td> {x.valor} </td>
+                         <td> {x.codigo} </td>
+                         <td> <button onClick={()=> editar(x.codigo)}  className="btn btn-primary btn-x5">Editar</button> </td>
+                         <td> <button onClick={()=> deleteItem(x.codigo)}  className="btn btn-danger btn-x5">Excluir</button> </td>
+                     </tr>
+                 )}
+                </table>
         </div>
     )
 }
+

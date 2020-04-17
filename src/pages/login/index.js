@@ -6,6 +6,7 @@ export default function Login(){
 
     const [model, setModel] = useState({email:"", senha:""})
     const [message, setMessage] = useState()
+    const [refInput, setRefInput] = useState()
 
     const changeModel = ({target})=>{
       setModel((state)=>{
@@ -21,7 +22,10 @@ export default function Login(){
          })
 
          event.preventDefault()
+         setRefInput("")
     }
+
+    
 
     
 
@@ -32,9 +36,9 @@ export default function Login(){
                     <h2 className="font-weight-bold">Login</h2>
                 </div>
                 
-                   <input onChange={changeModel} className="form-control my-2" name="email" type="email" placeholder="Digite o email" />
+                   <input onChange={changeModel} value={refInput} className="form-control my-2" name="email" type="email" placeholder="Digite o email" />
                 
-                    <input onChange={changeModel} className="form-control my-2" name="senha" type="password" placeholder="Digite a senha" />
+                    <input onChange={changeModel} value={refInput} className="form-control my-2" name="senha" type="password" placeholder="Digite a senha" />
                 
                 <button className="btn btn-primary btn-block btn-lg my-2" type="submit">Logar</button>
                 <div className="text-center">
