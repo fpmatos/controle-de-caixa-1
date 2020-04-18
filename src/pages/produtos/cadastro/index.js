@@ -24,9 +24,9 @@ export default function CadastroProdutos({history}){
                     <h2 className="font-weight-bold">Cadastro de Produtos</h2>
                 </div>
                 
-                    <input onChange={changeModel} className="form-control" type="name" placeholder="nome do produto" name="nome"/>
+                    <input onChange={changeModel} className="form-control" type="text" placeholder="nome do produto" name="nome"/>
                 
-                    <input onChange={changeModel} className="form-control" type="name" placeholder="tipo" name="tipo" />
+                    <input onChange={changeModel} className="form-control" type="text" placeholder="tipo" name="tipo" />
                 
                     <input onChange={changeModel} className="form-control" type="number" placeholder="valor" name="valor" />
                 

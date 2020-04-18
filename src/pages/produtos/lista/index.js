@@ -28,9 +28,7 @@ const deleteItem = (itemCodigo)=>{
 }
 
 const editar = (editCodigo)=>{
-    editarCodigo(editCodigo).then(()=>{
-        history.push("/editar-produtos")
-    })
+    history.push( `/editar-produtos/${editCodigo}`)
 }
     
 
@@ -53,8 +51,8 @@ const editar = (editCodigo)=>{
                          <td> {x.tipo} </td>
                          <td> {x.valor} </td>
                          <td> {x.codigo} </td>
-                         <td> <button onClick={()=> editar(x.codigo)}  className="btn btn-primary btn-x5">Editar</button> </td>
-                         <td> <button onClick={()=> deleteItem(x.codigo)}  className="btn btn-danger btn-x5">Excluir</button> </td>
+                         <td> <button onClick={()=> editar(x.id)}  className="btn btn-primary btn-x5">Editar</button> </td>
+                         <td> <button onClick={()=> deleteItem(x.id)}  className="btn btn-danger btn-x5">Excluir</button> </td>
                      </tr>
                  )}
                 </table>
